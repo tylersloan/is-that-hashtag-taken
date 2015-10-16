@@ -37,7 +37,7 @@ get "/:tag" do
     html << "<img src='#{media_item.images.thumbnail.url}'>"
   end
 
-  twitterSearch = twitterClient.search("%23" + theTag, result_type: "mixed").take(20)
+  twitterSearch = twitterClient.search("#" + theTag + " -rt", result_type: "mixed").take(20)
 
   for tweet in twitterSearch
     html << "<li>#{ tweet.text }</li>"
