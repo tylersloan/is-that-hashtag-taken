@@ -1,13 +1,13 @@
 require "sinatra"
 require "instagram"
+require "twitter"
+
+load 'instagram_config.rb'
+load 'twitter_config.rb'
 
 enable :sessions
 
 CALLBACK_URL = "http://localhost:4567/oauth/callback"
-
-Instagram.configure do |config|
-  config.client_id = "270d07af06de479aa7e8798b5cf761f9"
-end
 
 get "/" do
   erb :index
