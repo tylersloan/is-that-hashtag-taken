@@ -11,11 +11,14 @@ end
 
 get "/" do
   erb :index
-end
+end 
 
-get "/tags/:tag" do
+get "/:tag" do
   client = Instagram.client(:access_token => session[:access_token])
-  
+  html = "<form action=''>
+  <input type='text' placeholder='search hashtag'>
+  <button type='submit' id='js-search-hashtag'>Search</button>
+  </form>"
   tags = client.tag_search(params['tag'])
   html = "<h2>Hashtag: #{tags[0].name}</h2><h3>Used #{tags[0].media_count} times.</h3><br/><br/>"
   for media_item in client.tag_recent_media(tags[0].name)

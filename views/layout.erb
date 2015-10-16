@@ -4,6 +4,16 @@
 	<title>hastag stats</title>
 </head>
 <body>
+<%= yield %>
 
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script>
+	$("#js-search-hashtag").on('click', function(e) {
+		e.preventDefault();
+		var val = $("#js-hashtag").val();
+		window.location.href = "/" + val;
+	})
+</script>
 </body>
 </html>
